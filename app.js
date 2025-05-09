@@ -130,11 +130,9 @@ input.addEventListener('input', () => {
 
 async function add_search_movie_to_dom() {
   const data = await get_movie_by_search(input.value)
-  console.log(data)
-
   movie_list_item.innerHTML = data.map(e => {
     return `
-      <div class="movie-list-item" data-id='${e.id}' data-type="movie">
+      <div class="movie-list-item" data-id="${e.id}" data-type="movie">
         <img class="movie-list-item-img" src="${image_path + e.poster_path}" alt="">
         <span class="movie-list-item-title">${e.title}</span>
         <p class="movie-list-item-desc">
@@ -156,7 +154,7 @@ async function add_search_movie_to_dom_top_10() {
   const data = await get_top_movies()
   top_10.innerHTML = data.map(e => {
     return `
-      <div class="movie-list-item" data-id='${e.id}' data-type="movie">
+      <div class="movie-list-item" data-id="${e.id}" data-type="movie">
         <img class="movie-list-item-img" src="${image_path + e.poster_path}" alt="">
         <span class="movie-list-item-title">${e.title}</span>
         <p class="movie-list-item-desc">
@@ -177,7 +175,7 @@ async function add_search_movie_to_dom_new_realise() {
   const data = await get_new_reales_movies()
   new_realise.innerHTML = data.map(e => {
     return `
-      <div class="movie-list-item" data-id='${e.id} data-type="movie"'>
+      <div class="movie-list-item" data-id="${e.id}" data-type="movie"'>
         <img class="movie-list-item-img" src="${image_path + e.poster_path}" alt="">
         <span class="movie-list-item-title">${e.title}</span>
         <p class="movie-list-item-desc">
@@ -199,7 +197,7 @@ async function add_search_movie_to_dom_movies() {
   const data = await get_movies()
   get_movie.innerHTML = data.map(e => {
     return `
-      <div class="movie-list-item" data-id='${e.id} data-type="movie"'>
+      <div class="movie-list-item" data-id="${e.id}" data-type="movie"'>
         <img class="movie-list-item-img" src="${image_path + e.poster_path}" alt="">
         <span class="movie-list-item-title">${e.title}</span>
         <p class="movie-list-item-desc">
@@ -416,6 +414,7 @@ async function show_popup(card) {
 
 //local strore for heart
 
+
 const heart_icon = popup_container.querySelector('.heart-icon');
 
 const movie_ids = await get_ls(); 
@@ -436,6 +435,10 @@ heart_icon.addEventListener('click', async () => {
   }
   fetch_favorite_movies();
 });
+
+
+
+
 
 }
 
